@@ -68,6 +68,12 @@ pipelines:
             ENV_NAME: dev
           jobs:
             test:
+              artifacts:
+                -build:
+                  source: report_dev.html
+                  destination: test-output
+              tabs:
+                Report: test-output/report_dev.html
               tasks: *test-tasks
       - deploy-int:
           environment_variables:
@@ -80,6 +86,12 @@ pipelines:
             ENV_NAME: int
           jobs:
             test:
+              artifacts:
+                -build:
+                  source: report_int.html
+                  destination: test-output
+              tabs:
+                Report: test-output/report_int.html
               tasks: *test-tasks
       - deploy-prd:
           environment_variables:
@@ -92,6 +104,12 @@ pipelines:
             ENV_NAME: prod
           jobs:
             test:
+              artifacts:
+                -build:
+                  source: report_prod.html
+                  destination: test-output
+              tabs:
+                Report: test-output/report_prod.html
               tasks: *test-tasks
 
 
