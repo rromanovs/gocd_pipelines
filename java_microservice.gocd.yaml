@@ -4,7 +4,7 @@ pipelines:
   java_microservice:
     group: microservices
     lock_behavior: unlockWhenFinished
-    label_template:
+    label_template: "${git_java_microservice}"
     materials:
       git_java_microservice:
         git: "https://github.com/rromanovs/api_tests_ci.git"
@@ -21,5 +21,59 @@ pipelines:
                     arguments:
                       - -c
                       - echo "Building Java app"
+      - deploy-dev:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - echo "Deploy to DEV"
+      - test-dev:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - echo "Testing DEV"
+      - deploy-int:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - echo "Deploy to INT"
+      - test-int:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - echo "Testing INT"
+      - deploy-prd:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - echo "Deploy to PROD"
+      - test-prd:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - -c
+                      - echo "Testing PROD"
 
 
