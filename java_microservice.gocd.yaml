@@ -69,7 +69,7 @@ pipelines:
           jobs:
             test:
               artifacts:
-                -build:
+                - build:
                   source: report_dev.html
                   destination: test-output
               tabs:
@@ -87,7 +87,7 @@ pipelines:
           jobs:
             test:
               artifacts:
-                -build:
+                - build:
                   source: report_int.html
                   destination: test-output
               tabs:
@@ -105,7 +105,7 @@ pipelines:
           jobs:
             test:
               artifacts:
-                -build:
+                - build:
                   source: report_prod.html
                   destination: test-output
               tabs:
