@@ -70,8 +70,8 @@ pipelines:
             test:
               artifacts:
                 - build:
-                  source: report_dev.html
-                  destination: test-output
+                    source: report_dev.html
+                    destination: test-output
               tabs:
                 Report: test-output/report_dev.html
               tasks: *test-tasks
@@ -88,8 +88,8 @@ pipelines:
             test:
               artifacts:
                 - build:
-                  source: report_int.html
-                  destination: test-output
+                    source: report_int.html
+                    destination: test-output
               tabs:
                 Report: test-output/report_int.html
               tasks: *test-tasks
@@ -106,8 +106,8 @@ pipelines:
             test:
               artifacts:
                 - build:
-                  source: report_prod.html
-                  destination: test-output
+                    source: report_prod.html
+                    destination: test-output
               tabs:
                 Report: test-output/report_prod.html
               tasks: *test-tasks
